@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusWeb | Fullstack Development Solutions</title>
+  <link rel="icon" type="image/svg+xml"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/svgs/solid/code.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #667eea;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover:after {
+      width: 100%;
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-20px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .tech-icon {
+      transition: all 0.3s ease;
+    }
+
+    .tech-icon:hover {
+      transform: scale(1.2);
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #667eea;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-white z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 flex items-center">
+            <span class="text-2xl font-bold text-indigo-600">Nexus<span class="text-gray-800">Web</span></span>
+          </div>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#home" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Home</a>
+          <a href="#services"
+            class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Services</a>
+          <a href="#portfolio"
+            class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Portfolio</a>
+          <a href="#about" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">About</a>
+          <a href="#contact"
+            class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Contact</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button id="menu-btn" class="text-gray-500 hover:text-indigo-600 focus:outline-none">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#home"
+          class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Home</a>
+        <a href="#services"
+          class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Services</a>
+        <a href="#portfolio"
+          class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Portfolio</a>
+        <a href="#about"
+          class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">About</a>
+        <a href="#contact"
+          class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 gradient-bg text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="md:flex items-center justify-between">
+        <div class="md:w-1/2 mb-12 md:mb-0">
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Fullstack Web Development <br> <span
+              class="text-indigo-200">Done Right</span></h1>
+          <p class="text-lg md:text-xl text-indigo-100 mb-8">We build fast, secure, and scalable web applications with
+            modern technologies that drive business growth.</p>
+          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <a href="#contact"
+              class="bg-white text-indigo-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold text-center transition duration-300">Get
+              Started</a>
+            <a href="#portfolio"
+              class="border-2 border-white text-white hover:bg-white hover:bg-opacity-10 px-8 py-3 rounded-lg font-semibold text-center transition duration-300">View
+              Work</a>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+          <img src="https://edu-versity.in/wp-content/uploads/2022/03/fullstack-development.png" alt="Web Development"
+            class="rounded-lg shadow-2xl animate-float max-w-full h-auto">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-center text-2xl md:text-3xl font-bold text-gray-800 mb-12">Our Technology Stack</h2>
+      <div class="grid grid-cols-3 md:grid-cols-6 gap-8">
+        <div class="flex flex-col items-center tech-icon">
+          <i class="fab fa-react text-5xl text-blue-500 mb-2"></i>
+          <span class="text-gray-700">React</span>
+        </div>
+        <div class="flex flex-col items-center tech-icon">
+          <i class="fab fa-vuejs text-5xl text-green-500 mb-2"></i>
+          <span class="text-gray-700">Vue.js</span>
+        </div>
+        <div class="flex flex-col items-center tech-icon">
+          <i class="fab fa-node-js text-5xl text-green-600 mb-2"></i>
+          <span class="text-gray-700">Node.js</span>
+        </div>
+        <div class="flex flex-col items-center tech-icon">
+          <i class="fab fa-laravel text-5xl text-red-500 mb-2"></i>
+          <span class="text-gray-700">Laravel</span>
+        </div>
+        <div class="flex flex-col items-center tech-icon">
+          <i class="fas fa-database text-5xl text-blue-600 mb-2"></i>
+          <span class="text-gray-700">MongoDB</span>
+        </div>
+        <div class="flex flex-col items-center tech-icon">
+          <i class="fas fa-database text-5xl text-blue-700 mb-2"></i>
+          <span class="text-gray-700">PostgreSQL</span>
+        </div>
+        <div class="flex flex-col items-center tech-icon">
+          <i class="fab fa-js-square text-5xl text-blue-900 mb-2"></i>
+          <span class="text-gray-700">Next.js</span>
+        </div>
+        <div class="flex flex-col items-center tech-icon">
+          <i class="fab fa-node-js text-5xl text-gray-800 mb-2"></i>
+          <span class="text-gray-700">Express</span>
+        </div>
+        <div class="flex flex-col items-center tech-icon">
+          <i class="fab fa-angular text-5xl text-red-700 mb-2"></i>
+          <span class="text-gray-700">Angular</span>
+        </div>
+        <div class="flex flex-col items-center tech-icon">
+          <i class="fab fa-js text-5xl text-blue-700 mb-2"></i>
+          <span class="text-gray-700">TypeScript</span>
+        </div>
+        <div class="flex flex-col items-center tech-icon">
+          <i class="fab fa-python text-5xl text-yellow-500 mb-2"></i>
+          <span class="text-gray-700">Python</span>
+        </div>
+        <div class="flex flex-col items-center tech-icon">
+          <i class="fab fa-git-alt text-5xl text-orange-600 mb-2"></i>
+          <span class="text-gray-700">Git</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive web development solutions tailored to your
+          business needs</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-md transition duration-300 card-hover">
+          <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+            <i class="fas fa-laptop-code text-3xl text-indigo-600"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-3">Frontend Development</h3>
+          <p class="text-gray-600 mb-4">Beautiful, responsive interfaces built with React, Vue.js, or Angular that
+            engage users and drive conversions.</p>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Responsive Design</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Progressive Web Apps
+            </li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> UI/UX Optimization
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md transition duration-300 card-hover">
+          <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+            <i class="fas fa-server text-3xl text-indigo-600"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-3">Backend Development</h3>
+          <p class="text-gray-600 mb-4">Robust server-side architecture with Node.js, Django, or Laravel that ensures
+            security, scalability and performance.</p>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> API Development</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Database Design</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Cloud Integration</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md transition duration-300 card-hover">
+          <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+            <i class="fas fa-mobile-alt text-3xl text-indigo-600"></i>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-3">Fullstack Solutions</h3>
+          <p class="text-gray-600 mb-4">End-to-end web applications with seamless frontend-backend integration and
+            optimized workflows.</p>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Custom Web Apps</li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> E-commerce Platforms
+            </li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> CMS Development</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Portfolio</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">See some of our recent projects that delivered exceptional
+          results</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="rounded-xl overflow-hidden shadow-lg transition duration-300 card-hover">
+          <img src="https://images.inc.com/uploaded_files/image/1920x1080/getty_516357942_127825.jpg"
+            alt="E-commerce Platform" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">E-commerce Platform</h3>
+            <p class="text-gray-600 mb-4">A high-performance online store with custom product configurator and payment
+              integration.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">React</span>
+              <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Node.js</span>
+              <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">MongoDB</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-xl overflow-hidden shadow-lg transition duration-300 card-hover">
+          <img src="https://cdn.pixabay.com/photo/2020/07/08/04/12/work-5382501_1280.jpg" alt="SaaS Application"
+            class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">SaaS Application</h3>
+            <p class="text-gray-600 mb-4">A subscription-based project management tool with real-time collaboration
+              features.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Vue.js</span>
+              <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Laravel</span>
+              <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">MySQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-xl overflow-hidden shadow-lg transition duration-300 card-hover">
+          <img src="https://cdn.pixabay.com/photo/2019/07/14/16/29/pen-4337524_1280.jpg" alt="Healthcare Portal"
+            class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Healthcare Portal</h3>
+            <p class="text-gray-600 mb-4">A HIPAA-compliant patient management system with telemedicine capabilities.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">Angular</span>
+              <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">NestJS</span>
+              <span class="bg-indigo-100 text-indigo-800 text-xs px-3 py-1 rounded-full">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="#"
+          class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg font-semibold transition duration-300">View
+          All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="md:flex items-center">
+        <div class="md:w-1/2 mb-12 md:mb-0">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">About NexusWeb</h2>
+          <p class="text-lg text-gray-600 mb-6">We're a team of passionate fullstack developers dedicated to building
+            exceptional web experiences that solve real business problems.</p>
+          <p class="text-lg text-gray-600 mb-8">With over 8 years of combined experience, we've helped startups and
+            established companies transform their ideas into successful digital products.</p>
+          <div class="flex items-center">
+            <div class="flex -space-x-2">
+              <img class="w-10 h-10 rounded-full border-2 border-white"
+                src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team member">
+              <img class="w-10 h-10 rounded-full border-2 border-white"
+                src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team member">
+              <img class="w-10 h-10 rounded-full border-2 border-white"
+                src="https://randomuser.me/api/portraits/women/68.jpg" alt="Team member">
+            </div>
+            <div class="ml-4">
+              <p class="text-gray-800 font-medium">Our Team</p>
+              <p class="text-gray-600">3 Fullstack Developers</p>
+            </div>
+          </div>
+        </div>
+        <div class="md:w-1/2 md:pl-12">
+          <div class="bg-white p-8 rounded-xl shadow-md">
+            <h3 class="text-xl font-bold text-gray-800 mb-6">Our Approach</h3>
+            <div class="space-y-6">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <div class="flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
+                    <span class="font-bold">1</span>
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-medium text-gray-800">Discovery</h4>
+                  <p class="mt-1 text-gray-600">We start by understanding your business goals, target audience, and
+                    technical requirements.</p>
+                </div>
+              </div>
+
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <div class="flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
+                    <span class="font-bold">2</span>
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-medium text-gray-800">Prototyping</h4>
+                  <p class="mt-1 text-gray-600">We create wireframes and prototypes to visualize the user experience
+                    before development.</p>
+                </div>
+              </div>
+
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <div class="flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
+                    <span class="font-bold">3</span>
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <h4 class="text-lg font-medium text-gray-800">Development</h4>
+                  <p class="mt-1 text-gray-600">We build your application using agile methodologies with regular
+                    progress updates.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 bg-indigo-700 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
+        <p class="text-xl text-indigo-200 max-w-3xl mx-auto">Don't just take our word for it - hear from some of our
+          satisfied clients</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-filter backdrop-blur-sm">
+          <div class="flex items-center mb-6">
+            <img class="w-12 h-12 rounded-full" src="https://randomuser.me/api/portraits/women/63.jpg" alt="Client">
+            <div class="ml-4">
+              <h4 class="font-bold">Sarah Johnson</h4>
+              <p class="text-indigo-200 text-sm">CEO, TechStart Inc.</p>
+            </div>
+          </div>
+          <p class="text-indigo-100">"NexusWeb transformed our outdated platform into a modern, user-friendly
+            application. Their attention to detail and technical expertise was impressive."</p>
+          <div class="flex mt-4">
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+          </div>
+        </div>
+
+        <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-filter backdrop-blur-sm">
+          <div class="flex items-center mb-6">
+            <img class="w-12 h-12 rounded-full" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+            <div class="ml-4">
+              <h4 class="font-bold">Michael Chen</h4>
+              <p class="text-indigo-200 text-sm">CTO, HealthTrack</p>
+            </div>
+          </div>
+          <p class="text-indigo-100">"The team delivered our healthcare portal ahead of schedule while meeting all
+            compliance requirements. Their fullstack knowledge was invaluable."</p>
+          <div class="flex mt-4">
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+          </div>
+        </div>
+
+        <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-filter backdrop-blur-sm">
+          <div class="flex items-center mb-6">
+            <img class="w-12 h-12 rounded-full" src="https://randomuser.me/api/portraits/women/28.jpg" alt="Client">
+            <div class="ml-4">
+              <h4 class="font-bold">Emily Rodriguez</h4>
+              <p class="text-indigo-200 text-sm">Marketing Director, StyleHub</p>
+            </div>
+          </div>
+          <p class="text-indigo-100">"Our e-commerce platform saw a 40% increase in conversions after NexusWeb's
+            redesign. Their understanding of both frontend and backend was crucial."</p>
+          <div class="flex mt-4">
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+            <i class="fas fa-star text-yellow-400"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Ready to start your project? Contact us today for a free
+          consultation.</p>
+      </div>
+
+      <div class="md:flex">
+        <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
+          <h3 class="text-2xl font-bold text-gray-800 mb-6">Contact Information</h3>
+          <p class="text-gray-600 mb-8">Fill out the form or reach out to us directly using the contact details below.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="flex-shrink-0">
+                <div class="flex items-center justify-center h-10 w-10 rounded-md bg-indigo-100 text-indigo-600">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-medium text-gray-800">Address</h4>
+                <p class="mt-1 text-gray-600">123 Tech Street, Gulshan, Dhaka 1212</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="flex-shrink-0">
+                <div class="flex items-center justify-center h-10 w-10 rounded-md bg-indigo-100 text-indigo-600">
+                  <i class="fas fa-envelope"></i>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-medium text-gray-800">Email</h4>
+                <p class="mt-1 text-gray-600">hello@nexusweb.dev</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="flex-shrink-0">
+                <div class="flex items-center justify-center h-10 w-10 rounded-md bg-indigo-100 text-indigo-600">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+              </div>
+              <div class="ml-4">
+                <h4 class="text-lg font-medium text-gray-800">Phone</h4>
+                <p class="mt-1 text-gray-600">(880) 15755-20123</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <h4 class="text-lg font-medium text-gray-800 mb-4">Follow Us</h4>
+            <div class="flex space-x-4">
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-indigo-100 hover:text-indigo-600 transition duration-300">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-indigo-100 hover:text-indigo-600 transition duration-300">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-indigo-100 hover:text-indigo-600 transition duration-300">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="#"
+                class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-indigo-100 hover:text-indigo-600 transition duration-300">
+                <i class="fab fa-dribbble"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:w-1/2">
+          <form class="bg-gray-50 p-8 rounded-xl shadow-md">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                <input type="text" id="first-name"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition duration-300">
+              </div>
+              <div>
+                <label for="last-name" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                <input type="text" id="last-name"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition duration-300">
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <input type="email" id="email"
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition duration-300">
+            </div>
+
+            <div class="mt-6">
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone (Optional)</label>
+              <input type="tel" id="phone"
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition duration-300">
+            </div>
+
+            <div class="mt-6">
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">How can we help you?</label>
+              <textarea id="message" rows="4"
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition duration-300"></textarea>
+            </div>
+
+            <div class="mt-8">
+              <button type="submit"
+                class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition duration-300">Send
+                Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="md:flex md:justify-between">
+        <div class="mb-8 md:mb-0">
+          <span class="text-2xl font-bold text-indigo-400">Nexus<span class="text-white">Web</span></span>
+          <p class="mt-4 text-gray-400 max-w-xs">Fullstack web development solutions that drive business growth and user
+            engagement.</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">Services</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Frontend Development</a>
+              </li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Backend Development</a>
+              </li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Fullstack Solutions</a>
+              </li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Web App Maintenance</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">Company</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Portfolio</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Testimonials</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Careers</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4">Legal</h3>
+            <ul class="space-y-3">
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Service</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Cookie Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">© 2025 NexusWeb. All rights reserved.</p>
+        <div class="mt-4 md:mt-0">
+          <a href="#" class="text-gray-400 hover:text-white mx-4 transition duration-300">Privacy Policy</a>
+          <a href="#" class="text-gray-400 hover:text-white mx-4 transition duration-300">Terms of Service</a>
+          <a href="#" class="text-gray-400 hover:text-white ml-4 transition duration-300">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+
+          // Close mobile menu if open
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+          }
+        }
+      });
+    });
+
+    // Add shadow and transparency to navbar on scroll
+    window.addEventListener('scroll', function () {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 550) {
+        nav.classList.add('shadow-md', 'bg-white', 'bg-opacity-60', 'backdrop-blur');
+      } else {
+        nav.classList.remove('shadow-md', 'bg-opacity-60', 'backdrop-blur');
+      }
+    });
+  </script>
+</body>
+
+</html>

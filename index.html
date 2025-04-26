@@ -9,74 +9,7 @@
     href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/svgs/solid/code.svg">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    .gradient-bg {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-
-    .card-hover:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-
-    .nav-link {
-      position: relative;
-    }
-
-    .nav-link:after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -2px;
-      left: 0;
-      background-color: #667eea;
-      transition: width 0.3s ease;
-    }
-
-    .nav-link:hover:after {
-      width: 100%;
-    }
-
-    .animate-float {
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-20px);
-      }
-
-      100% {
-        transform: translateY(0px);
-      }
-    }
-
-    .tech-icon {
-      transition: all 0.3s ease;
-    }
-
-    .tech-icon:hover {
-      transform: scale(1.2);
-    }
-
-    input:focus,
-    textarea:focus {
-      outline: none;
-      box-shadow: 0 0 0 2px #667eea;
-    }
-  </style>
+  <link rel="stylesheet" href="src/style.css">
 </head>
 
 <body class="bg-gray-50">
@@ -652,47 +585,7 @@
     </div>
   </footer>
 
-  <script>
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
-
-          // Close mobile menu if open
-          if (!mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.add('hidden');
-          }
-        }
-      });
-    });
-
-    // Add shadow and transparency to navbar on scroll
-    window.addEventListener('scroll', function () {
-      const nav = document.querySelector('nav');
-      if (window.scrollY > 550) {
-        nav.classList.add('shadow-md', 'bg-white', 'bg-opacity-60', 'backdrop-blur');
-      } else {
-        nav.classList.remove('shadow-md', 'bg-opacity-60', 'backdrop-blur');
-      }
-    });
-  </script>
+  <script src="src/script.js"></script>
 </body>
 
 </html>
